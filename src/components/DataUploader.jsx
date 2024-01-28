@@ -111,7 +111,9 @@ function DataUploader() {
           <div className="content-center">
             <Row className="row-grid justify-content-between align-items-center text-left">
               <Col lg="6" md="6">
-                <h1 className="text-white">
+                <h1 
+                className="text-white"
+                style={{fontWeight:"600"}}>
                 Empower your insights, load your data with us!  
                 </h1>
                 <p className="text-white mb-3">
@@ -132,7 +134,7 @@ function DataUploader() {
                   <Col>
                     <Card style={{background: "#212124"}}>
                       <CardBody>
-                        <Input
+                        <Input style={{borderColor:"#FFFFFF", background:"#212124", color:"#FFFFFF"}}
                           type="file"
                           placeholder="Upload here!"
                           onChange={readExcel}
@@ -149,8 +151,8 @@ function DataUploader() {
                       {
                         currentUser==null?
                         <Button
-                        className="btn-simple"
-                        color="info"
+                        className="btn-wrapper"
+                        color="success"
                         href="#pablo"
                         onClick={()=>navigate("/login")}
                       >

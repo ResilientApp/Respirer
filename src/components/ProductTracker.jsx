@@ -209,7 +209,9 @@ function ProductTracker() {
           <div className="content-center">
             <Row className="row-grid justify-content-between align-items-center text-left">
               <Col lg="6" md="6">
-                <h1 className="text-white">
+                <h1 
+                className="text-white"
+                style={{fontWeight:"600"}}>
                 Discover the carbon footprint of your plate – because every bite counts! 🌍 <br />
                   {/* <span className="text-white">secured</span> */}
                 </h1>
@@ -231,8 +233,8 @@ function ProductTracker() {
                 <Row className="justify-content-between">
                   <Col>
                     <Card>
-                      <CardBody style={{background: "#212124"}}>
-                        <Input
+                      <CardBody style={{background: "171719"}}>
+                        <Input style={{borderColor:"#FFFFFF"}}
                           type="text"
                           placeholder="Get started, track your CO2!"
                           onChange={(e) => setProduct(e.target.value)}

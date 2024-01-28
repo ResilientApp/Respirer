@@ -126,7 +126,12 @@ h6 {
   margin-bottom: 0.5rem;
 }
 
+.h3-head{
+  font-weight: 600;
+}
+
 p {
+  text-align: justify;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -2635,6 +2640,9 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0 rgba(212, 214, 216, 0.5);
 }
 
+.margin-top{
+  margin-top: 5rem;
+}
 .btn-success {
   color: #ffffff;
   background-color: #078348;
@@ -4496,8 +4504,8 @@ input[type="button"].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #525f7f;
-  background-color: #171941;
-  border-color: #e3e3e3 #e3e3e3 #171941;
+  background-color: #171719;
+  border-color: #e3e3e3 #e3e3e3 #171719;
 }
 .nav-tabs .dropdown-menu {
   margin-top: -0.0625rem;
@@ -11319,6 +11327,11 @@ button.bg-darker:focus {
   color: #ffffff !important;
 }
 
+.text-white-head {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
 .text-primary {
   color: #e14eca !important;
 }
@@ -11365,7 +11378,7 @@ a.text-warning:focus {
 }
 
 .text-danger {
-  color: #fd5d93 !important;
+  color: #078348 !important;
 }
 
 a.text-danger:hover,
@@ -13982,7 +13995,7 @@ th::after {
 .footer {
   padding: 50px 0;
   border-top: 2px solid #435db5;
-  background: radial-gradient(ellipse at bottom, #292d61 30%, #171941 80%);
+  background: #171719;
 }
 .footer [class*="container-"] {
   padding: 0;
@@ -16358,7 +16371,7 @@ img {
     left: 0;
     top: 0;
     margin: 0.7rem;
-    background: #1f2251;
+    background: #171719;
     border-radius: 0.2857rem;
     padding: 1.4rem;
   }
@@ -16452,7 +16465,7 @@ h6 {
 }
 
 a {
-  color: #ba54f5;
+  color: #078348;
   font-weight: 300;
 }
 a:hover,
@@ -17799,7 +17812,7 @@ code {
 }
 
 .profile-page .btcwdgt {
-  background-color: #171941 !important;
+  background-color: #171719 !important;
 }
 .profile-page .btcwdgt .btcwdgt-header {
   background-color: transparent !important;
@@ -18727,7 +18740,7 @@ border: 91.785px solid #078348;
   overflow-x: hidden;
 }
 .landing-page .page-header::after {
-  background: radial-gradient(ellipse at top right, #292d61 23%, #171941 65%);
+  background: radial-gradient(ellipse at top right, #292d61 23%, #171719 65%);
   position: absolute;
   height: 100vh;
   width: 100%;
@@ -24169,7 +24182,7 @@ td.rdtYear:hover {
 }
 
 .footer {
-  border-color: #8c3db9;
+  border-color: #171719;
 }
 
 .form-control:focus,

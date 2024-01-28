@@ -166,9 +166,15 @@ export default function IndexNavbar() {
               >
             <Button
                 className="nav-link d-none d-lg-block"
-                color="default"
+                color="success"
+                style={{
+                  backgroundColor: "transparent", 
+                  color: "inherit",
+                  border: "none"
+                }}
+                
               >
-                <i className="tim-icons icon-zoom-split" /> Search
+              <i className="tim-icons icon-zoom-split" /> Search
               </Button>
               <i className="tim-icons icon-zoom-split d-lg-none d-xl-none" /> 
               <p className="d-lg-none d-xl-none">Search</p>
@@ -185,7 +191,12 @@ export default function IndexNavbar() {
               >
               <Button
                 className="nav-link d-none d-lg-block"
-                color="default"
+                color="success"
+                style={{
+                  backgroundColor: "transparent", 
+                  color: "inherit",
+                  border: "none"
+                }}
               >
                 <i className="tim-icons icon-notes" /> My Data
               </Button>
@@ -226,7 +237,7 @@ export default function IndexNavbar() {
                 <i className="fa fa-cogs d-lg-none d-xl-none" />
                 Getting started
               </DropdownToggle>
-              <DropdownMenu className="dropdown-with-icons" style={{backgroundColor: "#171941"}}>
+              <DropdownMenu className="dropdown-with-icons" style={{backgroundColor: "#171719"}}>
                 <DropdownItem tag={Link} to="/login">
                   <i className="tim-icons icon-badge" />
                   Login
