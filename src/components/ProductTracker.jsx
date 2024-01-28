@@ -233,7 +233,7 @@ function ProductTracker() {
                 <Row className="justify-content-between">
                   <Col>
                     <Card>
-                      <CardBody style={{background: "171719"}}>
+                      <CardBody style={{background: "#212124"}}>
                         <Input style={{borderColor:"#FFFFFF"}}
                           type="text"
                           placeholder="Get started, track your CO2!"

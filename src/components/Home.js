@@ -3,6 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Button } from "reactstrap";
 import Footer from "../components/Footer/Footer";
 import Dashboard from "./Dashboard";
+import {
+  Card,
+  CardBody,
+} from "reactstrap";
 
 export default function Home() {
   let navigate = useNavigate();
@@ -84,11 +88,14 @@ export default function Home() {
             className="path"
             src={require("../assets/img/path5.png")}
           /> */}
+          
           <Container>
+          <Card>
+            <CardBody style={{background: "#171719"}}>
             <Row className="row-grid justify-content-between">
               <Col md="5">
                 <img
-                  style={{ borderRadius: ".5rem", marginTop: "2rem" }}
+                  style={{ borderRadius: ".5rem", marginTop: "2rem" , marginLeft:"2rem"}}
                   alt="..."
                   className="img-fluid floating"
                   src={require("../assets/img/respirer-what.png")}
@@ -114,11 +121,15 @@ export default function Home() {
                 </div>
               </Col>
             </Row>
+            </CardBody>
+            </Card>
           </Container>
 
           <Container className="margin-top">
+          <Card>
+            <CardBody style={{background: "#171719"}}>
             <Row className="row-grid justify-content-between">
-              <Col md="5">
+              <Col md="6">
                 <div className="px-md-5">
                   <hr className="line-success" />
                   <h3 className="h3-head">Our Goal</h3>
@@ -135,13 +146,15 @@ export default function Home() {
               </Col>
               <Col md="5">
                 <img
-                  style={{ borderRadius: ".5rem", marginTop: "2rem" }}
+                  style={{ borderRadius: ".5rem", marginTop: "2rem", marginRight:"rem" }}
                   alt="..."
                   className="img-fluid floating "
                   src={require("../assets/img/respirer-what.png")}
                 />
               </Col>
             </Row>
+            </CardBody>
+          </Card>
           </Container>
         </section>
         <section className="section section-lg">
