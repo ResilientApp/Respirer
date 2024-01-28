@@ -57,15 +57,12 @@ export default function UserSignup() {
               <Container>
                 <Row>
                   <Col className="offset-lg-0 offset-md-3" lg="5" md="6">
-                    <Card className="card-register">
+                    <Card className="card-register" style={{background: "#212124"}}>
                       <CardHeader>
-                        <CardImg
-                          alt="..."
-                          src={require("../assets/img/square1.png")}
-                        />
+                      
                         <CardTitle tag="h3">Register</CardTitle>
                       </CardHeader>
-                      <CardBody>
+                      <CardBody style={{background: "#212124"}}>
                         {error && (
                           <Alert
                             variant="danger"
@@ -75,19 +72,20 @@ export default function UserSignup() {
                           </Alert>
                         )}
                         <Form className="form" onSubmit={handleSubmit}>
-                          <Input
+                          <Input 
+                          style={{borderColor:"#FFFFFF"}}
                             innerRef={emailRef}
                             placeholder="Email"
                             type="text"
                           />
-                          <Input
-                            style={{ marginTop: "1rem" }}
+                          <Input 
+                            style={{ marginTop: "1rem", borderColor:"#FFFFFF" }}
                             innerRef={passwordRef}
                             placeholder="Password"
                             type="password"
                           />
                           <Input
-                            style={{ marginTop: "1rem" }}
+                            style={{ marginTop: "1rem", borderColor:"#FFFFFF" }}
                             innerRef={passwordConfirmRef}
                             placeholder="Confirm Password"
                             type="password"
@@ -110,8 +108,8 @@ export default function UserSignup() {
                       <CardFooter>
                         <Button
                           disabled={loading}
-                          className="btn-round"
-                          color="info"
+                          className="btn-wrapper"
+                          color="success"
                           size="lg"
                           onClick={handleSubmit}
                         >
@@ -125,8 +123,8 @@ export default function UserSignup() {
                   </Col>
                   <Col style={{alignContent: "center", justifyContent: "center"}}>
                   <div className="content-center brand">
-              <h1 className="h1-seo">Join Us</h1>
-              <p className="text-white font-italic">
+              <h1 className="h1-seo text-white-head">Join Us</h1>
+              <p className="text-white">
               Discover the untapped value in food's leftovers. Register with Respirer and turn organic by-products into sustainable solutions.
 
               </p>

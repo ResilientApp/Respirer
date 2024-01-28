@@ -48,15 +48,13 @@ export default function Login() {
             <Container>
               <Row>
                 <Col className="offset-lg-0 offset-md-3" lg="5" md="6">
-                  <Card className="card-register">
+                  <Card 
+                  style={{background: "#212124"}}
+                  className="card-register">
                     <CardHeader>
-                      <CardImg
-                        alt="..."
-                        src={require("../assets/img/square1.png")}
-                      />
                       <CardTitle tag="h3">Login</CardTitle>
                     </CardHeader>
-                    <CardBody>
+                    <CardBody style={{background: "#212124"}}>
                       {error && (
                         <Alert
                           variant="danger"
@@ -66,13 +64,13 @@ export default function Login() {
                         </Alert>
                       )}
                       <Form className="form" onSubmit={handleSubmit}>
-                        <Input
+                        <Input style={{borderColor:"#FFFFFF"}}
                           innerRef={emailRef}
                           placeholder="Email"
                           type="text"
                         />
                         <Input
-                          style={{ marginTop: "1rem" }}
+                          style={{ marginTop: "1rem", borderColor:"#FFFFFF" }}
                           innerRef={passwordRef}
                           placeholder="Password"
                           type="password"
@@ -82,8 +80,8 @@ export default function Login() {
                     <CardFooter>
                       <Button
                         disabled={loading}
-                        className="btn-round"
-                        color="info"
+                        className="btn-wrapper"
+                        color="success"
                         size="lg"
                         onClick={handleSubmit}
                       >
@@ -124,7 +122,7 @@ export default function Login() {
                     style={{ float: "right" }}
                     alt="..."
                     className="img-fluid"
-                    src={require("../assets/img/peel.png")}
+                    src={require("../assets/img/Tree.png")}
                   />
                 </Col>
               </Row>

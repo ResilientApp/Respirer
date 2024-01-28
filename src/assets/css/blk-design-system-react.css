@@ -126,7 +126,12 @@ h6 {
   margin-bottom: 0.5rem;
 }
 
+.h3-head{
+  font-weight: 600;
+}
+
 p {
+  text-align: justify;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -2635,6 +2640,9 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0 rgba(212, 214, 216, 0.5);
 }
 
+.margin-top{
+  margin-top: 5rem;
+}
 .btn-success {
   color: #ffffff;
   background-color: #078348;
@@ -4496,8 +4504,8 @@ input[type="button"].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #525f7f;
-  background-color: #171941;
-  border-color: #e3e3e3 #e3e3e3 #171941;
+  background-color: #171719;
+  border-color: #e3e3e3 #e3e3e3 #171719;
 }
 .nav-tabs .dropdown-menu {
   margin-top: -0.0625rem;
@@ -4512,7 +4520,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #ffffff;
-  background-color: #e14eca;
+  background-color: #ffffff;
 }
 
 .nav-fill > .nav-link,
@@ -11319,6 +11327,11 @@ button.bg-darker:focus {
   color: #ffffff !important;
 }
 
+.text-white-head {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
 .text-primary {
   color: #e14eca !important;
 }
@@ -11365,7 +11378,7 @@ a.text-warning:focus {
 }
 
 .text-danger {
-  color: #fd5d93 !important;
+  color: #078348 !important;
 }
 
 a.text-danger:hover,
@@ -13982,7 +13995,7 @@ th::after {
 .footer {
   padding: 50px 0;
   border-top: 2px solid #435db5;
-  background: radial-gradient(ellipse at bottom, #292d61 30%, #171941 80%);
+  background: #171719;
 }
 .footer [class*="container-"] {
   padding: 0;
@@ -16358,7 +16371,7 @@ img {
     left: 0;
     top: 0;
     margin: 0.7rem;
-    background: #1f2251;
+    background: #171719;
     border-radius: 0.2857rem;
     padding: 1.4rem;
   }
@@ -16452,7 +16465,7 @@ h6 {
 }
 
 a {
-  color: #ba54f5;
+  color: #078348;
   font-weight: 300;
 }
 a:hover,
@@ -17799,7 +17812,7 @@ code {
 }
 
 .profile-page .btcwdgt {
-  background-color: #171941 !important;
+  background-color: #171719 !important;
 }
 .profile-page .btcwdgt .btcwdgt-header {
   background-color: transparent !important;
@@ -18643,7 +18656,7 @@ border-radius: 370.615px;
 border: 91.785px solid #078348;
   background: none;
   animation: move-left-right 4s infinite;
-  opacity: 0.5;
+  opacity: 0.1;
   left: 3%;
   top: -21%;
 }
@@ -18656,9 +18669,9 @@ border: 91.785px solid #078348;
   flex-shrink: 0;
   border-radius: 527.634px;
 border: 91.785px solid #078348;
-  opacity: 0.4;
+  opacity: 0.3;
   right: -5%;
-  top: -12%;
+  top: -18%;
 }
 .index-page .squares.square3 {
   background: none;
@@ -18678,7 +18691,7 @@ border: 91.785px solid #078348;
   animation: move-left-right 10s infinite;
   height: 100px;
   width: 100px;
-  opacity: 0.9;
+  opacity: 0.3;
   right: 27%;
   top: 70%;
 }
@@ -18689,7 +18702,7 @@ border: 91.785px solid #078348;
   /* animation: move-left-right 6s infinite; */
   height: 100%;
   width: 100%;
-  opacity: 0.5;
+  opacity: 0.3;
   background-position: center;
   /* left: 32%;
   bottom: 29%; */
@@ -18702,8 +18715,8 @@ border: 91.785px solid #078348;
   height: 80px;
   width: 80px;
   opacity: 0.3;
-  width: 331.415px;
-height: 331.415px;
+  width: 280.415px;
+height: 280.415px;
 transform: rotate(-132.33deg);
 flex-shrink: 0;
 border-radius: 331.415px;
@@ -18714,9 +18727,9 @@ border: 91.785px solid #078348;
   animation: move-left-right 3s infinite;
   right: -5%;
   bottom: 0%;
-  opacity: 0.2;
-  width: 331.415px;
-  height: 331.415px;
+  opacity: 0.1;
+  width: 280px;
+  height: 280px;
   transform: rotate(-132.33deg);
   flex-shrink: 0;
   border-radius: 331.415px;
@@ -18727,7 +18740,7 @@ border: 91.785px solid #078348;
   overflow-x: hidden;
 }
 .landing-page .page-header::after {
-  background: radial-gradient(ellipse at top right, #292d61 23%, #171941 65%);
+  background: radial-gradient(ellipse at top right, #292d61 23%, #171719 65%);
   position: absolute;
   height: 100vh;
   width: 100%;
@@ -19057,7 +19070,7 @@ border: 91.785px solid #078348;
   width: 150px;
   /* background-image: url("../img/square5.png"); */
   opacity: 0.5;
-  top: 500px;
+  top: 300px;
   right: 470px;
 }
 .register-page .square-6 {
@@ -24169,7 +24182,7 @@ td.rdtYear:hover {
 }
 
 .footer {
-  border-color: #8c3db9;
+  border-color: #171719;
 }
 
 .form-control:focus,
