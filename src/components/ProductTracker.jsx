@@ -39,25 +39,61 @@ function ProductTracker() {
     trackProduct();
   };
 
+  const currentLabels = [
+    'Land Preparation',
+    'Trellis	Fertilizer',
+    'Pest and weed management',
+    'Compost',
+    'Irrigation',
+    'Cover Cropping',
+    'Harvest',
+    'Pick-up truck',
+    'Transport',
+    'Fuel',
+    'Vinery Machinery',
+    'Field N2O emissions',
+    'Transportation',
+    'Electricity production',
+    'Fuel',
+    'Fermentation',
+    'Oenological',
+    'Wastewater',
+    'Packaging materials',
+    'Shipping',
+    'Purchased wine'
+  ]
+
   const dataObjects = (stage) => {
+    let valuesArray=[];
+    currentLabels.forEach((label) => {
+      valuesArray.push(stage[label] || 0);
+    });
     return {
-      labels: ['Inherent', 'Pesticides', 'Fertilizers', 'Equipment', 'Fuel'],
+      labels: currentLabels,
       datasets: [
         {
           label: 'CO2 Emissions',
-          data: [
-            stage.Inherent,
-            stage.Pesticides,
-            stage.Fertilizers,
-            stage.Equipment,
-            stage.Fuel
-          ],
+          data: valuesArray,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
             'rgba(255, 206, 86, 0.2)',
             'rgba(75, 192, 192, 0.2)',
             'rgba(255, 159, 64, 0.2)',
+            'rgba(128, 0, 0, 0.2)',
+            'rgba(0, 128, 0, 0.2)',
+            'rgba(0, 0, 128, 0.2)',
+            'rgba(128, 128, 0, 0.2)',
+            'rgba(128, 0, 128, 0.2)',
+            'rgba(0, 128, 128, 0.2)',
+            'rgba(255, 0, 0, 0.2)',
+            'rgba(0, 255, 0, 0.2)',
+            'rgba(0, 0, 255, 0.2)',
+            'rgba(255, 255, 0, 0.2)',
+            'rgba(255, 0, 255, 0.2)',
+            'rgba(0, 255, 255, 0.2)',
+            'rgba(192, 192, 192, 0.2)',
+            'rgba(128, 128, 128, 0.2)',
           ],
           borderColor: [
             'rgba(255, 99, 132, 1)',
@@ -65,6 +101,20 @@ function ProductTracker() {
             'rgba(255, 206, 86, 1)',
             'rgba(75, 192, 192, 1)',
             'rgba(255, 159, 64, 1)',
+            'rgba(128, 0, 0, 1)',
+            'rgba(0, 128, 0, 1)',
+            'rgba(0, 0, 128, 1)',
+            'rgba(128, 128, 0, 1)',
+            'rgba(128, 0, 128, 1)',
+            'rgba(0, 128, 128, 1)',
+            'rgba(255, 0, 0, 1)',
+            'rgba(0, 255, 0, 1)',
+            'rgba(0, 0, 255, 1)',
+            'rgba(255, 255, 0, 1)',
+            'rgba(255, 0, 255, 1)',
+            'rgba(0, 255, 255, 1)',
+            'rgba(192, 192, 192, 1)',
+            'rgba(128, 128, 128, 1)',
           ],
           borderWidth: 1,
         },
@@ -86,12 +136,15 @@ function ProductTracker() {
        setProductFound(true);
        let sd = [...sankeyData];
        productStages.forEach(stage => {
-        const { Stage, Inherent, Pesticides, Equipment, Fertilizers, Fuel } = stage;
-        if (Inherent > 0) sd.push([Stage, 'Inherent', Inherent]);
-        if (Pesticides > 0) sd.push([Stage, 'Pesticides', Pesticides]);
-        if (Equipment > 0) sd.push([Stage, 'Equipment', Equipment]);
-        if (Fertilizers > 0) sd.push([Stage, 'Fertilizers', Fertilizers]);
-        if (Fuel > 0) sd.push([Stage, 'Fuel', Fuel]);
+        currentLabels.forEach((label)=>{
+          if(stage[label] > 0) sd.push([stage["Stage"], label, stage[label]]);
+        })
+        // const { Stage, Inherent, Pesticides, Equipment, Fertilizers, Fuel } = stage;
+        // if (Inherent > 0) sd.push([Stage, 'Inherent', Inherent]);
+        // if (Pesticides > 0) sd.push([Stage, 'Pesticides', Pesticides]);
+        // if (Equipment > 0) sd.push([Stage, 'Equipment', Equipment]);
+        // if (Fertilizers > 0) sd.push([Stage, 'Fertilizers', Fertilizers]);
+        // if (Fuel > 0) sd.push([Stage, 'Fuel', Fuel]);
       });
 
       // sd.push(["Crop", "Processing Facility", 10]);
@@ -102,7 +155,7 @@ function ProductTracker() {
         if(productStages[i]!=null){
         const fromStage = productStages[i]?.Stage;
         const toStage = productStages[i + 1]?.Stage;
-        const co2Value = productStages[i + 1]?.Inherent; // You may want to calculate this based on your requirements
+        const co2Value = 9; // You may want to calculate this based on your requirements
       
         sd.push([fromStage, toStage, co2Value]);
         }
@@ -149,7 +202,7 @@ function ProductTracker() {
             }
           });
           setProductStages(adj);
-          setTotalEmissions(te);
+          setTotalEmissions(te.toFixed(2));
           console.log(adj);
           console.log(te);
         } else {
@@ -183,7 +236,7 @@ function ProductTracker() {
                 <h3>{item.Stage}</h3>
               </CardHeader>
               <CardBody className="round-card-body">
-                <p>{item.CO2} CO<sub>2</sub>E </p></CardBody>
+                <p>{item.CO2.toFixed(2)} CO<sub>2</sub>E </p></CardBody>
             </Card>
             {hoveredIndex === index && productStages[index] && (
             <div className="tooltip-or-modal">
