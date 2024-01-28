@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Input,
   Row,
@@ -16,12 +16,11 @@ import {
 import { FETCH_TRANSACTION } from "../utils/ResDbApis";
 import { sendRequest } from "../utils/ResDbClient";
 import { CardHeader } from "react-bootstrap";
-import { SankeyController, Flow } from "chartjs-chart-sankey";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, registerables } from 'chart.js';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from "react-chartjs-2";
+import Chart from "react-google-charts";
 
-ChartJS.register(ArcElement, Tooltip, Legend, ...registerables);
-ChartJS.register(SankeyController, Flow);
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 function ProductTracker() {
   const [productStages, setProductStages] = useState([]);
@@ -30,7 +29,7 @@ function ProductTracker() {
   const [productFound, setProductFound] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [totalEmissions, setTotalEmissions] = useState(0);
-  const chartRef = useRef(null);
+  const [sankeyData, setSankeyData] = useState([['From', 'To', 'Weight']]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -73,21 +72,6 @@ function ProductTracker() {
     };
   };
 
-  const sankeyData = {
-    datasets: [{
-      data: productStages.map(stage => ({
-        from: 'Stage ' + stage.StageNo,
-        to: {
-          Inherent: stage.Inherent,
-          Pesticides: stage.Pesticides,
-          Fertilizers: stage.Fertilizers,
-          Equipment: stage.Equipment,
-          Fuel: stage.Fuel
-        }
-      }))
-    }]
-  };
-
   const PieOptions = {
     plugins: {
       legend: {
@@ -96,36 +80,36 @@ function ProductTracker() {
     },
   };
 
-//   useEffect(() => {
-//     let sankeyChart=null;
-//     if (chartRef && chartRef.current) {
-//       const ctx = chartRef.current.getContext("2d");
-//       sankeyChart = new ChartJS(ctx, {
-//         type: 'sankey',
-//         data: sankeyData,
-//         options: {
-//           plugins: {
-//             legend: {
-//               display: false
-//             }
-//           }
-//         }
-      
-//       // setCurrentChart(chart);
-    
-//   })
-  
-// }
-// return()=>{
-//   sankeyChart?.destroy();
-//   ChartJS.unregister('sankey');
-// }
-// }, []);
-
-
   useEffect(() => {
-    if (productStages.length != 0) {
-      setProductFound(true);
+    if (productStages.length != 0)
+    {
+       setProductFound(true);
+       let sd = [...sankeyData];
+       productStages.forEach(stage => {
+        const { Stage, Inherent, Pesticides, Equipment, Fertilizers, Fuel } = stage;
+        if (Inherent > 0) sd.push([Stage, 'Inherent', Inherent]);
+        if (Pesticides > 0) sd.push([Stage, 'Pesticides', Pesticides]);
+        if (Equipment > 0) sd.push([Stage, 'Equipment', Equipment]);
+        if (Fertilizers > 0) sd.push([Stage, 'Fertilizers', Fertilizers]);
+        if (Fuel > 0) sd.push([Stage, 'Fuel', Fuel]);
+      });
+
+      // sd.push(["Crop", "Processing Facility", 10]);
+      // sd.push(["Processing Facility", "Distribution", 20]);
+      // sd.push(["Distribution", "Retailing", 40]);
+
+      for (let i = 0; i < productStages.length - 1; i++) {
+        if(productStages[i]!=null){
+        const fromStage = productStages[i]?.Stage;
+        const toStage = productStages[i + 1]?.Stage;
+        const co2Value = productStages[i + 1]?.Inherent; // You may want to calculate this based on your requirements
+      
+        sd.push([fromStage, toStage, co2Value]);
+        }
+      }
+
+      setSankeyData(sd);
+      
     }
   }, [productStages]);
 
@@ -300,7 +284,6 @@ function ProductTracker() {
                   traceability for sustainability.
                 </span>
               </UncontrolledAlert>
-              <canvas ref={chartRef} />
               <h3 className="text-white mb-3"></h3>
               <ListGroup
                 horizontal
@@ -315,26 +298,19 @@ function ProductTracker() {
                 <ListGroupItem
                   style={{ backgroundColor: "transparent", border: "none" }}
                 >
-                  {/* <Card>
-                    <CardHeader>
-                      <h3>{initialProduct["OutputProducts"]}</h3>
-                    </CardHeader>
-                    <CardBody>
-                      <Card className="text-left card-stats bg-default">
-                        <CardBody>
-                          <ul>
-                            <li>Name: {initialProduct.Name}</li>
-                            <li>Desc: {initialProduct.Description}</li>
-                            <li>Event: {initialProduct.EventType}</li>
-                            <li>Byproducts: {initialProduct.ByProducts}</li>
-                          </ul>
-                        </CardBody>
-                      </Card>
-                    </CardBody>
-                  </Card> */}
                 </ListGroupItem>
                 {renderChain()}
               </ListGroup>
+              <div className="content-center">
+              <Chart
+                    width="100%"
+                    height={'450px'}
+                    chartType="Sankey"
+                    loader={<div>Loading Chart</div>}
+                    data={sankeyData}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </div>
             </Container>
           ) : productFound ? (
             <div />
