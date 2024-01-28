@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/respirer/static/css/main.0bb5d2ea.css",
+    "main.js": "/respirer/static/js/main.80b1a87a.js",
+    "static/media/plants.png": "/respirer/static/media/plants.bd0c732bfd10e445365d.png",
+    "static/media/Tree.png": "/respirer/static/media/Tree.b324e8d3d7a286830b40.png",
+    "static/media/globe-hands.png": "/respirer/static/media/globe-hands.ae7c434c899d2c323289.png",
+    "static/media/respirer-what.png": "/respirer/static/media/respirer-what.ad130a6b79c32dd2ab9e.png",
+    "static/media/dots.png": "/respirer/static/media/dots.1e305f981d41a2c30adb.png",
+    "static/media/blob.png": "/respirer/static/media/blob.e39506780c69b0fd8920.png",
+    "static/media/JoinUs.png": "/respirer/static/media/JoinUs.e560ccf1b06ae9e1b55b.png",
+    "static/media/nucleo.eot": "/respirer/static/media/nucleo.bd5cce8bf40be5947637.eot",
+    "static/media/nucleo.ttf": "/respirer/static/media/nucleo.35b08447277ca7bf9f09.ttf",
+    "static/media/nucleo.woff": "/respirer/static/media/nucleo.5c65ef4d6434bb8062a3.woff",
+    "static/media/nucleo.woff2": "/respirer/static/media/nucleo.6dfb4833e3a0132fd1fc.woff2",
+    "index.html": "/respirer/index.html",
+    "main.0bb5d2ea.css.map": "/respirer/static/css/main.0bb5d2ea.css.map",
+    "main.80b1a87a.js.map": "/respirer/static/js/main.80b1a87a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0bb5d2ea.css",
+    "static/js/main.80b1a87a.js"
+  ]
+}
