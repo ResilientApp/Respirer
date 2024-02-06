@@ -183,7 +183,7 @@ export default function Home() {
                       <div className="icon icon-danger">
                         <i className="tim-icons icon-lock-circle" />
                       </div>
-                      <h4 className="info-title">Transperancy</h4>
+                      <h4 className="info-title">Transparency</h4>
                     </div>
                   </Col>
                   <Col lg="3" className="text-center">
