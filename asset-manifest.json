@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/respirer/static/css/main.0bb5d2ea.css",
-    "main.js": "/respirer/static/js/main.80b1a87a.js",
+    "main.js": "/respirer/static/js/main.63e9e9cc.js",
     "static/media/plants.png": "/respirer/static/media/plants.bd0c732bfd10e445365d.png",
     "static/media/Tree.png": "/respirer/static/media/Tree.b324e8d3d7a286830b40.png",
     "static/media/globe-hands.png": "/respirer/static/media/globe-hands.ae7c434c899d2c323289.png",
@@ -15,10 +15,10 @@
     "static/media/nucleo.woff2": "/respirer/static/media/nucleo.6dfb4833e3a0132fd1fc.woff2",
     "index.html": "/respirer/index.html",
     "main.0bb5d2ea.css.map": "/respirer/static/css/main.0bb5d2ea.css.map",
-    "main.80b1a87a.js.map": "/respirer/static/js/main.80b1a87a.js.map"
+    "main.63e9e9cc.js.map": "/respirer/static/js/main.63e9e9cc.js.map"
   },
   "entrypoints": [
     "static/css/main.0bb5d2ea.css",
-    "static/js/main.80b1a87a.js"
+    "static/js/main.63e9e9cc.js"
   ]
 }
