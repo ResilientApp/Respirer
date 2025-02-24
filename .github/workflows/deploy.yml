@@ -1,0 +1,49 @@
+name: Deploy React to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create .env file
+        run: |
+          echo "REACT_APP_FIREBASE_APIKEY=${{ secrets.REACT_APP_FIREBASE_APIKEY }}" >> .env
+          echo "REACT_APP_FIREBASE_AUTHDOMAIN=${{ secrets.REACT_APP_FIREBASE_AUTHDOMAIN }}" >> .env
+          echo "REACT_APP_FIREBASE_PROJECTID=${{ secrets.REACT_APP_FIREBASE_PROJECTID }}" >> .env
+          echo "REACT_APP_FIREBASE_STORAGEBUCKET=${{ secrets.REACT_APP_FIREBASE_STORAGEBUCKET }}" >> .env
+          echo "REACT_APP_FIREBASE_MESSAGINGSENDERID=${{ secrets.REACT_APP_FIREBASE_MESSAGINGSENDERID }}" >> .env
+          echo "REACT_APP_FIREBASE_APPID=${{ secrets.REACT_APP_FIREBASE_APPID }}" >> .env
+          echo "REACT_APP_FIREBASE_MEASUREMENTID=${{ secrets.REACT_APP_FIREBASE_MEASUREMENTID }}" >> .env
+          echo "REACT_APP_ADMIN_PUBLIC_KEY=${{ secrets.REACT_APP_ADMIN_PUBLIC_KEY }}" >> .env
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Add CNAME for respirer.resilientdb.com
+        run: echo "respirer.resilientdb.com" > build/CNAME
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: build
