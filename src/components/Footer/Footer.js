@@ -35,7 +35,7 @@ export default function Footer() {
               <Button
                 className="btn-icon btn-neutral btn-round btn-simple"
                 color="default"
-                href="https://github.com/Amoolya-Reddy/Respirer"
+                href="https://github.com/ResilientApp/Respirer"
                 id="tooltip622135962"
                 target="_blank"
               >
